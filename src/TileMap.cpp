@@ -9,6 +9,9 @@ TileMap::TileMap(GameObject& associated, std::string file, TileSet* tileSet)
     Load(file);
 }
 
+TileMap::~TileMap() {
+}
+
 void TileMap::Load(std::string file) {
     tileMatrix.clear(); //Limpa o mapa antigo antes de ler o novo
 
@@ -69,7 +72,7 @@ int TileMap::GetWidth() { return mapWidth; }
 int TileMap::GetHeight() { return mapHeight; }
 int TileMap::GetDepth() { return mapDepth; }
 
-void TileMap::SetTileSet(TileSet* tileSet) { this->tileSet.reset(tileSet); }
+void TileMap::SetTileSet(TileSet* tileSet) { this->tileSet = tileSet; }
 
 bool TileMap::Is(std::string type) { return type == "TileMap"; }
 

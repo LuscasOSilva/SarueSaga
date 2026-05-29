@@ -5,7 +5,6 @@
 #include "SDL2/SDL_mixer.h"
 #include "SDL2/SDL_ttf.h" // LIDAR COM TEXTO
 #include "InputManager.h"
-#include "TitleState.h"
 #include <iostream>
 
 // Inicialização da instância estática como nula
@@ -83,14 +82,9 @@ Game::Game(std::string title, int width, int height) {
     frameStart = SDL_GetTicks();
     dt = 0;
     
-    // T7
     storedState = nullptr;
-    // O estado inicial absoluto do jogo agora é o Menu de Título!
-    stateStack.emplace(new TitleState());
-
-    /* //para começarmos já no jogo, apagar a parte de cima
-    storedState = nullptr;
-    stateStack.emplace(new StageState());*/
+    // Inicia direto na fase de testes do Saruê!
+    stateStack.emplace(new StageState());
 } // Fim do construtor
 
 Game::~Game() { // Destrutor
